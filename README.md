@@ -21,6 +21,7 @@ nginx   k8s.io/ingress-nginx   <none>       5m16s
 If you wanna uninstall, then you might use the command below:
 ```
 helm delete $(helm ls -n ingress-nginx | awk '/ingress-nginx/{print $1}') -n ingress-nginx
+kubectl delete ns ingress-nginx
 ```
 
 # 3. Service of Cat and Dog
