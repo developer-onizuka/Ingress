@@ -74,7 +74,8 @@ cat
            _-                    -_
 /
 </pre>
-
+```
+```
 # curl animals.example.com/dog/index.html
 dog
 <pre>
