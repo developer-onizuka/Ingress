@@ -36,6 +36,11 @@ kubectl apply -f dog/nginx_dog.yaml
 NAME   CLASS   HOSTS                 ADDRESS           PORTS   AGE
 cat    nginx   animals.example.com   192.168.121.224   80      70s
 dog    nginx   animals.example.com   192.168.121.224   80      57s
+
+# kubectl get services -n ingress-nginx
+NAME                                 TYPE           CLUSTER-IP       EXTERNAL-IP       PORT(S)                      AGE
+ingress-nginx-controller             LoadBalancer   10.103.229.243   192.168.121.224   80:32475/TCP,443:30535/TCP   11m
+ingress-nginx-controller-admission   ClusterIP      10.99.198.89     <none>            443/TCP                      11m
 ```
 
 # 5. Edit /etc/hosts
