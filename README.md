@@ -25,6 +25,7 @@ kubectl delete ns ingress-nginx
 ```
 
 # 3. Service of Cat and Dog
+Before this step, configmap should be created. See also https://github.com/developer-onizuka/LoadBalancer#2-service-of-cat.
 ```
 kubectl apply -f cat/nginx_cat.yaml
 kubectl apply -f dog/nginx_dog.yaml
