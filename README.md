@@ -139,7 +139,19 @@ nginx-cat-test-cd76c496-p97p5    2/2     Running   0          32s   10.10.235.18
 nginx-dog-test-867696956-68w7s   2/2     Running   0          32s   10.10.215.24    worker9   <none>           <none>
 nginx-dog-test-867696956-w9h6f   2/2     Running   0          32s   10.10.215.28    worker9   <none>           <none>
 ```
+- https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/
 ```
+cat <<EOF | kubectl apply -f -
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: istio
+spec:
+  controller: istio.io/ingress-controller
+EOF
+```
+```
+# sed -ie s/ingressClassName\:\ nginx/ingressClassName\:\ istio/g cat/nginx_cat.yaml
 # curl animals.example.com/cat/index.html
 cat
 <pre>
@@ -172,6 +184,7 @@ cat
 </pre>
 ```
 ```
+# sed -ie s/ingressClassName\:\ nginx/ingressClassName\:\ istio/g dog/nginx_dog.yaml
 # curl animals.example.com/dog/index.html
 dog
 <pre>
