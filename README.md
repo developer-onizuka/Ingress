@@ -31,7 +31,7 @@ kubectl apply -f cat/nginx_cat.yaml
 kubectl apply -f dog/nginx_dog.yaml
 ```
 
-# 4. Check Ingress created for each service
+# 4. Check Ingress created for each service and its endpoint
 ```
 # kubectl get ingress
 NAME   CLASS   HOSTS                 ADDRESS           PORTS   AGE
@@ -42,6 +42,10 @@ dog    nginx   animals.example.com   192.168.121.224   80      57s
 NAME                                 TYPE           CLUSTER-IP       EXTERNAL-IP       PORT(S)                      AGE
 ingress-nginx-controller             LoadBalancer   10.103.229.243   192.168.121.224   80:32475/TCP,443:30535/TCP   11m
 ingress-nginx-controller-admission   ClusterIP      10.99.198.89     <none>            443/TCP                      11m
+
+# kubectl get pod -n ingress-nginx -o wide
+NAME                                      READY   STATUS    RESTARTS      AGE   IP              NODE      NOMINATED NODE   READINESS GATES
+ingress-nginx-controller-54bfb9bb-4p8w2   1/1     Running   5 (19d ago)   34d   10.10.235.181   worker1   <none>           <none>
 ```
 
 # 5. Edit /etc/hosts
