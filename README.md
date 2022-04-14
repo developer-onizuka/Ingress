@@ -30,6 +30,12 @@ Before this step, configmap should be created. See also https://github.com/devel
 kubectl apply -f cat/nginx_cat.yaml
 kubectl apply -f dog/nginx_dog.yaml
 ```
+```
+kubectl get services
+NAME                  TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)                                                         AGE
+nginx-cat-svc         ClusterIP      10.97.147.250    <none>           8080/TCP                                                        22s
+nginx-dog-svc         ClusterIP      10.97.168.226    <none>           8080/TCP
+```
 
 # 4. Check Ingress created for each service and its endpoint
 ```
